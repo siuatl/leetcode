@@ -1,20 +1,15 @@
 def luckyNumbers(matrix: list[list[int]]) -> list[int]:
-    lucky_number = []
+    list_min = []
+    list_max = []
     for r in range(len(matrix)):
-        pos_min = None
-        for c in range(len(matrix[r])):
-            if pos_min is None or matrix[r][c] < matrix[r][pos_min]:
-                pos_min = c
-
-        pos_max = None
-        for f in range(len(matrix)):
-            if pos_max is None or matrix[f][pos_min] > matrix[pos_max][pos_min]:
-                pos_max = f
-        if r == pos_max:
-            lucky_number.append(matrix[pos_max][pos_min])
-            break
-
-    return lucky_number
+        list_min.append(min(matrix[r]))
+    for c in range(len(matrix[0])):
+        max_val = None
+        for r2 in range(len(matrix)):
+            if max_val is None or matrix[r2][c] > max_val:
+                max_val = matrix[r2][c]
+        list_max.append(max_val)
+    return list(set(list_min) & set(list_max))
 
 
 print(luckyNumbers([[3, 7, 8], [9, 11, 13], [15, 16, 17]]))
