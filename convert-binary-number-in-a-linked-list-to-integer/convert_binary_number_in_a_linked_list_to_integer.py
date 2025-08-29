@@ -31,7 +31,7 @@ linked_list = link_lis([1, 0, 1])
 print(getDecimalValue(linked_list))
 
 
-# # OPTION 2
+# OPTION 2
 # def getDecimalValue2(head) -> int:
 #     str_binary = ""
 #     node = head
